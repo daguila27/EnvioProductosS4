@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ListView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.envioproductos.R
 import com.example.envioproductos.ui.products_cart.products_cart_item.ProductCartItem
 import com.example.envioproductos.ui.products_cart.products_cart_item.ProductCartItemAdapter
 import com.example.envioproductos.cache.CacheManager
+import com.example.envioproductos.utils.Utils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.collections.MutableList
 
 class ProductsCartFragment : Fragment(R.layout.fragment_products_cart) {
 
@@ -39,13 +41,11 @@ class ProductsCartFragment : Fragment(R.layout.fragment_products_cart) {
             findNavController().navigate(R.id.nav_address_form)
         }
 
-        /**
-        productsCartListView.setOnItemClickListener { _, _, position, _ ->
-            val selectedItem = data[position]
-            Toast.makeText(requireContext(), "${productsCart.size} añadido al carrito", Toast.LENGTH_SHORT).show()
-        }**/
-
-
-
+        var total = 0
+        for (product in productsCart) {
+            total += product.totalCost
+        }
+        val productsCartListViewTotal = view.findViewById<TextView>(R.id.products_cart_list_view_total)
+        productsCartListViewTotal.text = "Total: $${Utils.formatNumber(total, 0)} CLP"
     }
 }

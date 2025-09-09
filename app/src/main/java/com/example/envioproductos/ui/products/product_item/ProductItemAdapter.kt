@@ -1,16 +1,13 @@
 package com.example.envioproductos.ui.products.product_item
 
 import android.content.Context
-import android.database.DataSetObserver
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.LinearLayout
-import android.widget.ListAdapter
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.example.envioproductos.R
+import com.example.envioproductos.utils.Utils
 
 class ProductItemAdapter (
     private val context: Context,
@@ -29,10 +26,12 @@ class ProductItemAdapter (
 
         val productName = view.findViewById<TextView>(R.id.product_name)
         val productType = view.findViewById<TextView>(R.id.product_type)
+        val productCost = view.findViewById<TextView>(R.id.product_cost)
 
         val item = productsList[position]
         productName.text = item.productName
         productType.text = item.productType
+        productCost.text = "$${Utils.formatNumber(item.cost, 0)} CLP"
 
         return view
     }

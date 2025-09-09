@@ -12,42 +12,9 @@ import com.example.envioproductos.R
 import com.example.envioproductos.cache.CacheManager
 import com.example.envioproductos.databinding.FragmentAddressFormBinding
 import com.example.envioproductos.ui.address_definition.address.Address
+import com.example.envioproductos.utils.Utils
 import kotlin.math.*
 
-fun haversine(
-    lat1: Double, lon1: Double,
-    lat2: Double, lon2: Double
-): Double {
-    val R = 6371000.0 // Radio de la Tierra en metros
-    val dLat = Math.toRadians(lat2 - lat1)
-    val dLon = Math.toRadians(lon2 - lon1)
-
-    val a = sin(dLat / 2).pow(2.0) +
-            cos(Math.toRadians(lat1)) *
-            cos(Math.toRadians(lat2)) *
-            sin(dLon / 2).pow(2.0)
-
-    val c = 2 * atan2(sqrt(a), sqrt(1 - a))
-    return (R * c)/1000 // resultado en kilometros
-}
-
-
-fun calculateDeliveryCost(
-    distance: Double, productCostAmount: Int
-): Int {
-    var costByKm: Int = 150;
-    if (productCostAmount >= 50000 && distance.toInt() < 20) {
-        costByKm = 0
-    }
-    if (25000 <= productCostAmount && productCostAmount <= 49999) {
-        costByKm = 150
-    }
-    if (productCostAmount <= 24999) {
-        costByKm = 300
-    }
-
-    return (costByKm*distance).roundToInt()
-}
 
 class AddressFormFragment : Fragment(R.layout.fragment_address_form)  {
     private var _binding: FragmentAddressFormBinding? = null
@@ -95,15 +62,15 @@ class AddressFormFragment : Fragment(R.layout.fragment_address_form)  {
 
         if (originAddress != null && destinyAddress != null) {
             //Calcula la distancia y precio de envío
-            val distancia = haversine(
+            val distancia = Utils.haversine(
                 (originAddress as Address).latitude, originAddress.longitude,
                 (destinyAddress as Address).latitude, destinyAddress.longitude
             )
-            binding.formAddressRoadInformationDistanceText.text = distancia.toString()+" kilómetros"
+            binding.formAddressRoadInformationDistanceText.text = "Distancia: ${Utils.formatNumber(distancia, 0)} KM"
 
             //Calcula el precio de envío
-            val deliveryCost = calculateDeliveryCost(distancia, 36000)
-            binding.formAddressRoadInformationDeliveryCostText.text = "$"+deliveryCost.toString()+" (CLP)"
+            val deliveryCost = Utils.calculateDeliveryCost(distancia, 36000)
+            binding.formAddressRoadInformationDeliveryCostText.text = "Valor: $${Utils.formatNumber(deliveryCost, 0)} CLP"
 
         }
 

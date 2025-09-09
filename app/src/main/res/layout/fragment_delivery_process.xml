@@ -9,47 +9,70 @@
     tools:context=".ui.delivery_process.DeliveryProcessFragment">
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Enviando productos a:" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="San Guillermo 941, dpto 1005. Valparaíso" />
-
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="20dp"
+            android:background="@drawable/border_layout">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enviando productos a:"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/delivery_process_destiny_address_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="12dp"
+                android:text="Seleccionar dirección de destino" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#E42121"
+            android:layout_marginTop="12dp"
+            android:paddingVertical="20dp"
+            android:paddingLeft="16dp"
+            android:id="@+id/delivery_process_temperature_block"
+            android:background="@drawable/border_layout_green"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 app:srcCompat="@drawable/ic_menu_gallery" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:backgroundTint="#FAFAFA"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 android:id="@+id/delivery_process_temperature_text"
                 android:text="Temperatura actual: 5°C" />
         </LinearLayout>
 
     </LinearLayout>
-
-
+    <Button
+        android:id="@+id/delivery_process_continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Finalizar" />
 </FrameLayout>

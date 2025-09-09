@@ -10,10 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        >
 
         <ImageView
             android:id="@+id/product_cart_image"
@@ -24,6 +27,7 @@
 
 
         <LinearLayout
+            android:paddingLeft="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="6"
@@ -33,12 +37,14 @@
                 android:id="@+id/product_cart_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
                 android:text="PRODUCT_NAME" />
 
             <TextView
                 android:id="@+id/product_cart_type"
-                android:layout_width="108dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18dp"
                 android:text="TYPE" />
         </LinearLayout>
 
@@ -46,7 +52,8 @@
             android:id="@+id/product_cart_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:textSize="18dp"
+            android:textStyle="bold"
             android:text="QUANTITY" />
 
 

@@ -16,16 +16,27 @@ import com.google.android.gms.maps.model.MarkerOptions
 import java.util.Locale
 import com.example.envioproductos.cache.CacheManager
 import com.example.envioproductos.ui.address_definition.address.Address
+import android.widget.Button
+import com.example.envioproductos.databinding.FragmentDeliveryProcessBinding
+import com.example.envioproductos.databinding.FragmentGoogleMapInputBinding
 
 class GoogleMapInputFragment : Fragment(R.layout.fragment_google_map_input), OnMapReadyCallback {
-
+    private var _binding: FragmentGoogleMapInputBinding? = null
+    private val binding get() = _binding!!
     private lateinit var googleMap: GoogleMap
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentGoogleMapInputBinding.bind(view)
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.google_map_input) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
+        val continueButton = view.findViewById<Button>(R.id.google_map_input_continue_button)
+        continueButton.setOnClickListener {
+            findNavController().navigate(R.id.nav_address_form)
+        }
     }
 
     override fun onMapReady(map: GoogleMap) {
@@ -41,7 +52,9 @@ class GoogleMapInputFragment : Fragment(R.layout.fragment_google_map_input), OnM
 
         //Key del dato en cache donde vamos a almacenar la dirección seleccionada
         val cacheOriginAdressKey = arguments?.getString("cacheAddressKey") ?: "originAddress"
-        
+
+        val continueButton = binding.googleMapInputContinueButton
+
         // Escuchar cuando el usuario toca el mapa
         googleMap.setOnMapClickListener { latLng ->
             googleMap.clear() // limpiar marcadores anteriores
@@ -55,7 +68,7 @@ class GoogleMapInputFragment : Fragment(R.layout.fragment_google_map_input), OnM
                 val address = addressList[0].getAddressLine(0)
                 CacheManager.put(cacheOriginAdressKey, Address(address, latLng.latitude, latLng.longitude))
                 CacheManager.put(cacheOriginAdressKey+"Title", address)
-                findNavController().navigate(R.id.nav_address_form)
+                continueButton.isEnabled = true
             }
         }
     }

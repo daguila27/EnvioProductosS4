@@ -27,10 +27,10 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         productsListView = view.findViewById(R.id.products_list_view)
 
         val data = listOf(
-            ProductItem("Carne", "Congelado"),
-            ProductItem("Arroz", "Normal"),
-            ProductItem("Azucar", "Normal"),
-            ProductItem("Salmon", "Congelado")
+            ProductItem("Carne", "Congelado", 4500),
+            ProductItem("Arroz", "Normal", 1500),
+            ProductItem("Azucar", "Normal", 12000),
+            ProductItem("Salmon", "Congelado", 3200)
         )
         val adapter = ProductItemAdapter(requireContext(), data)
 
@@ -39,8 +39,9 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
 
         productsListView.setOnItemClickListener { _, _, position, _ ->
             val product = data[position]
-            productsCart.add(ProductCartItem(product.productName, product.productType, 1))
-            Toast.makeText(requireContext(), "${productsCart.size} producto(s) añadido(s) al carrito", Toast.LENGTH_SHORT).show()
+            val quantity = 1
+            productsCart.add(ProductCartItem(product.productName, product.productType, quantity, product.cost*quantity))
+            Toast.makeText(requireContext(), "${product.productName} añadido al carrito", Toast.LENGTH_SHORT).show()
         }
 
 

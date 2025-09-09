@@ -8,17 +8,36 @@
     android:layout_height="match_parent"
     tools:context=".ui.products_cart.ProductsCartFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <ListView
         android:id="@+id/products_cart_list_view"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         tools:ignore="MissingConstraints">
 
     </ListView>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        >
+        <TextView
+            android:id="@+id/products_cart_list_view_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Total: $1.000 CLP" />
+    </LinearLayout>
+    </LinearLayout>
     <Button
         android:id="@+id/products_cart_continue_button"
         android:layout_width="wrap_content"

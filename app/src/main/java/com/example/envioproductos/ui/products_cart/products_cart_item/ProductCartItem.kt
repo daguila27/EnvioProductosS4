@@ -4,4 +4,5 @@ data class ProductCartItem (
     val productName: String,
     val productType: String,
     val productQuantity: Int,
+    val totalCost: Int
 )

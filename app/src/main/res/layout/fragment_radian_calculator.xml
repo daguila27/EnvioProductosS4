@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Campo para ingresar el número en grados -->
+    <EditText
+        android:id="@+id/radian_calculator_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa un número en grados"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        android:padding="12dp"/>
+
+    <!-- Botón para calcular -->
+    <Button
+        android:id="@+id/radian_calculator_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Convertir a Radianes"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Resultado en radianes -->
+    <TextView
+        android:id="@+id/radian_calculator_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado en radianes..."
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

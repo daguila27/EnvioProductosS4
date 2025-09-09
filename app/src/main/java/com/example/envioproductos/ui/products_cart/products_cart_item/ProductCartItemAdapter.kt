@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.envioproductos.R
+import com.example.envioproductos.utils.Utils
 
 class ProductCartItemAdapter (
     private val context: Context,
@@ -30,7 +31,7 @@ class ProductCartItemAdapter (
         val item = productsCartList[position]
         productCartName.text = item.productName
         productCartType.text = item.productType
-        productCartQuantity.text = item.productQuantity.toString()
+        productCartQuantity.text = "$${Utils.formatNumber(item.totalCost, 0)} (CLP)"
 
         return view
     }
