@@ -22,4 +22,39 @@
         android:name="com.example.envioproductos.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.example.envioproductos.ui.products.ProductsFragment"
+        android:label="@string/menu_products"
+        tools:layout="@layout/fragment_products" />
+
+
+    <fragment
+        android:id="@+id/nav_products_cart"
+        android:name="com.example.envioproductos.ui.products_cart.ProductsCartFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_products_cart" />
+
+
+    <fragment
+        android:id="@+id/nav_address_form"
+        android:name="com.example.envioproductos.ui.address_definition.AddressFormFragment"
+        android:label="Detalles del despacho"
+        tools:layout="@layout/fragment_address_form" />
+
+
+    <fragment
+        android:id="@+id/nav_google_map_input"
+        android:name="com.example.envioproductos.ui.google_map_input.GoogleMapInputFragment"
+        android:label="Seleccionar dirección"
+        tools:layout="@layout/fragment_google_map_input" />
+
+
+    <fragment
+        android:id="@+id/nav_delivery_process"
+        android:name="com.example.envioproductos.ui.delivery_process.DeliveryProcessFragment"
+        android:label="Enviando productos"
+        tools:layout="@layout/fragment_delivery_process" />
 </navigation>
