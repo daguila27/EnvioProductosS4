@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "112477068640",
+    "project_id": "envioproductoss4",
+    "storage_bucket": "envioproductoss4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112477068640:android:48cae0ec8626b2d7c15205",
+        "android_client_info": {
+          "package_name": "com.example.envioproductos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112477068640-qutdnqn1rqfspkbhfmeoaovhof9dct2i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.envioproductos",
+            "certificate_hash": "8a70332ce66b574db1e9939a09dd19a7b6547a39"
+          }
+        },
+        {
+          "client_id": "112477068640-ib2rateiivhaeolfrjuomb1cmjulp91n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeFyhPpzDPxg3LQmQgReWW_pseTxdI_YQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112477068640-ib2rateiivhaeolfrjuomb1cmjulp91n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
