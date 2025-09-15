@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--Fragmento para renderizar mapa de google, abarca
+        pantalla completa.-->
     <fragment
         android:id="@+id/google_map_input"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
+    <!--Botón para volver a la vista de definición
+        de direcciones.-->
     <Button
         android:id="@+id/google_map_input_continue_button"
         android:layout_width="match_parent"

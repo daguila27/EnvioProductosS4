@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.envioproductos.R
 import com.example.envioproductos.databinding.FragmentDeliveryProcessBinding
 import com.example.envioproductos.cache.CacheManager
-import com.example.envioproductos.ui.delivery_process.SimulateTemperature.Scenario
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.random.Random

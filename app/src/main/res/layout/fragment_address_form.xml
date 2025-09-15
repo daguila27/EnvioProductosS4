@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.address_definition.AddressFormFragment">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,14 +25,18 @@
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="1dp">
-
+                <!--Título para campo de ingreso de
+                    dirección-->
                 <TextView
                     android:id="@+id/form_address_origin_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Dirección de origen:"
                     android:textSize="20sp" />
-
+                <!--Contenedor para dirección seleccionada,
+                    tambien se usa para navegar a google map
+                    y seleccionar dirección
+                -->
                 <LinearLayout
                     android:id="@+id/form_address_origin_input"
                     android:layout_width="match_parent"
@@ -45,7 +47,6 @@
                     android:orientation="vertical"
                     tools:layout_editor_absoluteX="1dp"
                     tools:layout_editor_absoluteY="1dp">
-
                     <TextView
                         android:id="@+id/form_address_origin_placeholder"
                         android:layout_width="match_parent"
@@ -63,14 +64,12 @@
             android:orientation="vertical"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp">
-
             <TextView
                 android:id="@+id/form_address_destiny_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dirección de destino:"
                 android:textSize="20sp" />
-
             <LinearLayout
                 android:id="@+id/form_address_destiny_input"
                 android:layout_width="match_parent"
@@ -81,7 +80,6 @@
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="1dp">
-
                 <TextView
                     android:id="@+id/form_address_destiny_placeholder"
                     android:layout_width="match_parent"
@@ -94,6 +92,9 @@
             </LinearLayout>
         </LinearLayout>
         </LinearLayout>
+        <!--Contenedor para mostrar distancia y valor de
+            envío. Información es mostrada mediante código
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -102,7 +103,6 @@
             android:paddingVertical="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/border_layout">
-
             <TextView
                 android:id="@+id/form_address_road_information_title"
                 android:layout_width="match_parent"
@@ -116,16 +116,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Distancia: - KM" />
-
             <TextView
                 android:id="@+id/form_address_road_information_delivery_cost_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Valor: $- CLP" />
         </LinearLayout>
-
     </LinearLayout>
-
+    <!--Botón para continuar al siguiente paso-->
     <Button
         android:id="@+id/form_address_continue_button"
         android:layout_width="match_parent"
