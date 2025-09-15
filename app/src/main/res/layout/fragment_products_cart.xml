@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.products_cart.ProductsCartFragment">
 
+    <!--Listado de productos-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,8 @@
         tools:ignore="MissingConstraints">
 
     </ListView>
+
+    <!--Muestra total de la compra-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +41,7 @@
             android:text="Total: $1.000 CLP" />
     </LinearLayout>
     </LinearLayout>
+    <!--Botón para continuar al siguiente paso-->
     <Button
         android:id="@+id/products_cart_continue_button"
         android:layout_width="wrap_content"
@@ -46,6 +50,4 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:text="Continuar" />
-
-
 </FrameLayout>

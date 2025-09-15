@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/product_cart_item"
         android:layout_width="match_parent"
@@ -17,29 +16,24 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         >
-
         <ImageView
             android:id="@+id/product_cart_image"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_menu_gallery" />
-
-
         <LinearLayout
             android:paddingLeft="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/product_cart_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:text="PRODUCT_NAME" />
-
             <TextView
                 android:id="@+id/product_cart_type"
                 android:layout_width="wrap_content"
@@ -47,7 +41,6 @@
                 android:textSize="18dp"
                 android:text="TYPE" />
         </LinearLayout>
-
         <TextView
             android:id="@+id/product_cart_quantity"
             android:layout_width="wrap_content"
@@ -55,8 +48,5 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:text="QUANTITY" />
-
-
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
