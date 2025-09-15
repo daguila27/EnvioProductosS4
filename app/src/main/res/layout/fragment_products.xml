@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.products.ProductsFragment">
 
+    <!--Contenedor para mostrar listado de productos-->
     <ListView
         android:id="@+id/products_list_view"
         android:layout_width="match_parent"
@@ -17,6 +18,9 @@
         tools:ignore="MissingConstraints">
     </ListView>
 
+    <!--Botón de carrito de compras, dirige al usuario
+        al siguiente fragmento
+    -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/products_cart_float_button"
         android:layout_width="wrap_content"
