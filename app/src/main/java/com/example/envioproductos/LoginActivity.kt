@@ -1,6 +1,5 @@
 package com.example.envioproductos
 
-// Importaciones necesarias para trabajar con Activities, Intents, Logs, Firebase y Google Sign-In
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,10 +23,9 @@ class LoginActivity : AppCompatActivity() {
     // Instancia de Firebase Authentication
     private lateinit var auth: FirebaseAuth
 
-    companion object {
-        // Código de solicitud único para identificar el resultado del login con Google
-        private const val RC_SIGN_IN = 9001
-    }
+
+    // Código de solicitud único para identificar el resultado del login con Google
+    private val RC_SIGN_IN = 9001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,25 +57,24 @@ class LoginActivity : AppCompatActivity() {
     // Función para iniciar sesión con Google
     private fun signIn() {
         // Obtenemos el intent del cliente de Google
+        // ¡Muestra la ventana para seleccionar cuenta de Google!
         val signInIntent = googleSignInClient.signInIntent
-        // Lanzamos la actividad esperando un resultado
+        // Lanzamos la actividad de Google esperando que el código de estado
+        // del resultado sea 9001 (RC_SIGN_IN)
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
     // Método que recibe el resultado de startActivityForResult
+    // Funciona porque la función onActivityResult, heredada de AppCompatActivity,
+    // se ejecuta luego del intento de ejecución de cualquier activity (startActivityForResult),
+    // en este caso la de Google.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Verificamos si el resultado corresponde al inicio de sesión de Google
+        // Verificamos si el resultado corresponde al inicio de sesión de Google (9001)
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                // ⚠️ Aquí se lanza MainActivity incluso antes de autenticar con Firebase
-                // Lo recomendable sería hacerlo después de validar en Firebase
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-
                 // Obtenemos la cuenta de Google
                 val account = task.getResult(ApiException::class.java)!!
                 // Autenticamos en Firebase usando el ID Token
@@ -97,16 +94,17 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // ✅ Login exitoso
+                    // Login exitoso
                     val user = auth.currentUser
                     Log.d("LoginActivity", "Obtuvo credenciales de acceso: ${user?.email}")
 
-                    // Pasamos a la siguiente actividad (MainActivity)
+                    // Pasamos a la siguiente actividad (MainActivity).
+                    // ¡Ingresamos a la aplicación!
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    // ❌ Login fallido, mostramos el error en logs
+                    // Login fallido, mostramos el error en logs
                     Log.w("LoginActivity", "Intento de Login fallido", task.exception)
                 }
             }
