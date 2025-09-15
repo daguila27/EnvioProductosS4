@@ -4,6 +4,11 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <!--Aquí se define el listado para el menu lateral.
+            Conecta cada opción con el fragmento mediante el
+            identificador, el cual debe coincidir con el visto
+            en mobile_navigation.xml
+        -->
         <item
             android:id="@+id/nav_products"
             android:icon="@drawable/ic_menu_slideshow"

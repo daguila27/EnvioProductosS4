@@ -6,6 +6,11 @@
     app:startDestination="@+id/nav_products">
 
 
+    <!--Aca se definen los archivos .xml definidos en carpeta layout,
+        mediante dicha definición vinculamos el xml con un identificador
+        utilizado despues para definir la vista en la actividad principal
+        donde se implementa navigation
+    -->
     <fragment
         android:id="@+id/nav_products"
         android:name="com.example.envioproductos.ui.products.ProductsFragment"
